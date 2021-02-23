@@ -1,28 +1,16 @@
-import textio.TextIO;
+import javafx.scene.canvas.GraphicsContext;
 
 public class Demo{
-    int x = 3;
-    public static void main(String[] args){
-        Bruh yo = new Bruh();
-        System.out.print("Enter number to be printed: ");
-        System.out.println(yo.getIt());
 
-    }
-    public interface ConversionFactors{
-        int INCHES_PER_FOOT = 12;
-        int FEET_PER_YARD = 3;
-        int YARDS_PER_MILE = 1760;
-        public void tryOut();
+    public static void main(String[] args) {
+        Strokeable figure;
+        figure = new Circle();
+        GraphicsContext x = null;
+        figure.stroke(x);
+
+        Strokeable[] listOfFigures;
+        listOfFigures = new Strokeable[10];
+        listOfFigures[0] = new Circle();
+
     }
 }
-
-class Bruh extends Demo implements Demo.ConversionFactors{
-    public int getIt(){
-        super.x = TextIO.getlnInt();
-        return super.x;
-    }
-    public void tryOut(){
-        System.out.println(INCHES_PER_FOOT);
-    }
-}
-

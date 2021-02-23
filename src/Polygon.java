@@ -1,3 +1,5 @@
+import javafx.scene.canvas.GraphicsContext;
+
 public class Polygon {
 
     public void render(){
@@ -5,15 +7,23 @@ public class Polygon {
     }
 }
 
-class Square extends Polygon{
+class Square extends Polygon implements Strokeable{
+
     public void render(){
         System.out.println("Rendering Square...");
     }
+
+    public void stroke(GraphicsContext g){
+
+    }
 }
 
-class Circle extends Polygon{
+class Circle extends Polygon implements Strokeable{
     public void render(){
         System.out.println("Rendering Circle...");
+    }
+    public void stroke(GraphicsContext g){
+
     }
 }
 
