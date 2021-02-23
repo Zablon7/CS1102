@@ -1,0 +1,11 @@
+<component name="libraryTable">
+  <library name="scenebuilder-kit-15.0.1">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/../scenebuilder-kit-15.0.1.jar!/" />
+      <root url="file://$USER_HOME$/Downloads/javafx-sdk-15.0.1" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+    <jarDirectory url="file://$USER_HOME$/Downloads/javafx-sdk-15.0.1" recursive="false" />
+  </library>
+</component>
