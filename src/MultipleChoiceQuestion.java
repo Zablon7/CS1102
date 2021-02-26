@@ -1,11 +1,8 @@
 import javax.swing.JOptionPane;
 
-class MultipleChoiceQuestion {
+class MultipleChoiceQuestion extends Question {
 
-        static int nQuestions = 0;
-        static int nCorrect = 0;
-        String question;
-        String correctAnswer;
+
 
         public MultipleChoiceQuestion(String query, String a, String b, String c, String d,String e, String answer){
             question = query+"\n";
@@ -14,7 +11,7 @@ class MultipleChoiceQuestion {
             question += c + "\n";
             question += d + "\n";
             question += e;
-            correctAnswer = answer.toUpperCase();
+            this.correctAnswer = answer.toUpperCase();
         }
 
         String ask() {
@@ -31,21 +28,6 @@ class MultipleChoiceQuestion {
             return answer;
         }
 
-        void check() {
-            nQuestions++; // We count questions everytime the check method is called
-            String answer = ask();
-            if (answer.equals(correctAnswer)) {
-                JOptionPane.showMessageDialog(null, "Correct!");
-                nCorrect++; // We count correct answers everytime the user is correct
-            } else {
-                JOptionPane.showMessageDialog(null, "Incorrect." +
-                        " The correct answer is " + correctAnswer + ".");
-            }
-        }
 
-        void showResults(){
-            JOptionPane.showMessageDialog(null, nCorrect + " correct out of " +
-                    +nQuestions + " questions.");
-        }
 
 }

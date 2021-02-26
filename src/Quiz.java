@@ -3,7 +3,7 @@ public class Quiz {
 
     public static void main(String[] args) {
 
-        MultipleChoiceQuestion question = new MultipleChoiceQuestion(
+        Question question = new MultipleChoiceQuestion(
                 "What is the first Java course at UoPeople?",
         "A. CS1101",
         "B. CS1102",
@@ -12,8 +12,10 @@ public class Quiz {
         "E: CS1104",
         "b");
 
-        question.check();
 
+
+        Question question1 = new TrueFalseQuestion("We have a quiz next week", "FALSE");
+        question1.check();
 
 
         question = new MultipleChoiceQuestion(
@@ -26,7 +28,7 @@ public class Quiz {
                 "a"
         );
 
-        question.check();
+
 
         question = new MultipleChoiceQuestion(
                 "How many weeks has it been since you started CS1102",
@@ -38,7 +40,7 @@ public class Quiz {
                 "c"
         );
 
-        question.check();
+
 
         question = new MultipleChoiceQuestion(
                 "Who played Elliot Alderson on \"Mr robot\"?",
@@ -50,7 +52,7 @@ public class Quiz {
                 "d"
         );
 
-        question.check();
+
 
         question = new MultipleChoiceQuestion(
                 "Who played Walter O'Brien on \"scorpion\"?",
@@ -62,8 +64,8 @@ public class Quiz {
                 "e"
         );
 
-        question.check();
-        question.showResults();
+
+
 
     }
 }
