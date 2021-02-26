@@ -12,9 +12,7 @@ public class MosaicCanvas {
     public MosaicCanvas(){
         this(42,42);
     }
-    public interface Strokeable{
-        public void stroke(GraphicsContext g);
-    }
+
 
     public interface Fillable{
         public void color(Color x);
@@ -22,11 +20,14 @@ public class MosaicCanvas {
 }
 
 
-class FilledCircle extends Circle implements MosaicCanvas.Strokeable, MosaicCanvas.Fillable {
+class FilledCircle extends Circle implements Strokeable, MosaicCanvas.Fillable {
     public void stroke(GraphicsContext g){
 
     }
     public void color(Color x){
 
     }
+
+    int x = 3;
+
 }

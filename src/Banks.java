@@ -1,70 +1,72 @@
 import textio.TextIO;
 
-public class Banks {
-    /*
-    Since banks have different uses and offer different services;
-    let us create a superclass called Banks;
-    This super class will be used for general purposes;
-    It can even be changed into an abstract class, if we wanted it to.
-    * */
-    protected int initialAmount;
-    int amount;
-    protected int AcNum;
-    protected int AcPass;
-    protected int remainingAmount;
-    protected int Balance(){  // Instance method
-        /*
-        Since remainingAmount is a instance variable in this class;
-        We can refer to it by it's full name on her using the "this keyword"
-        * */
-        return this.remainingAmount;
+class Banks{
+    protected int AccNum;
+    private int amount;
+    int remainingNum = 10000;
+    int withdrawAmount;
+
+
+    int Balance(){
+        amount = remainingNum-withdrawAmount;
+       return amount;
+    }
+
+    public static void main(String[] args){
+        ATM atm = new ATM();
+        atm.withdraw(atm.AccNum);
     }
 }
 
 class ATM extends Banks{
+    private int PIN;
 
-    private boolean x;
-
-    public String withdraw(){
-        System.out.print("Enter account number: ");
-        super.AcNum = TextIO.getlnInt();
-        System.out.print("Password: ");
-        super.AcPass = TextIO.getlnInt();
-        System.out.print("Enter amount to be withdrawn: ");
-        super.amount = TextIO.getlnInt();
-        super.remainingAmount = super.initialAmount - super.amount; // This changes our balance method in the superclass
-        return super.amount +" withdrawn.";
-    }
-
-    public String Balance(boolean x){
-        x = this.x; // Use a private instance method to prevent tampering.
-        if (this.x){
-            return "Your balance is: " + super.Balance(); // We call balance from the superclass to give us the amount;
+    void withdraw(int AccountNumber){
+        System.out.print("Enter Account Number: ");
+        AccountNumber=TextIO.getlnInt();
+        super.AccNum = AccountNumber;
+        System.out.print("Enter PIN: ");
+        this.PIN = TextIO.getlnInt();
+        while (Integer.toString(this.PIN).length() != 4){
+            System.out.println("Invalid. Try Again.");
+            this.PIN = TextIO.getlnInt();
         }
-        else{
-            return "";
+        System.out.print("Enter amount you want to withdraw: ");
+        super.withdrawAmount=TextIO.getlnInt();
+        while(super.withdrawAmount > 10000 || super.withdrawAmount < 1){
+            System.out.println("Invalid operation, enter an amount between 1 and 10000");
+            System.out.print("Amount: ");
+            super.withdrawAmount = TextIO.getlnInt();
         }
+        System.out.println("Successful.");
+        System.out.println("Your remaining amount is $" + super.Balance());
     }
 }
 
 class MobileBanking extends Banks{
-    private int RecAcc;
-    ATM system = new ATM();
+    protected int receiver;
+    protected int sender;
+    private int amount;
 
-    void Send(){
-        System.out.print("Enter Receiver's account number: ");
-        this.RecAcc = TextIO.getlnInt();
-        system.AcNum = 0;
-        system.AcPass = 0;
-
-
+    void send(){
+        System.out.print("Enter receiver's account number: ");
+        this.receiver = TextIO.getlnInt();
+        System.out.print("Enter amount to be sent: ");
+        super.withdrawAmount= TextIO.getlnInt();
+        while(super.withdrawAmount > 10000 || super.withdrawAmount < 1){
+            System.out.println("Invalid operation, enter an amount between 1 and 10000");
+            System.out.print("Amount: ");
+            super.withdrawAmount = TextIO.getlnInt();
+        }
+        System.out.println("Sent.");
+        System.out.println("Your remaining amount is $" + super.Balance());
     }
 
-}
-
-class Demo{
-    public static void main(String[] args){
-        ATM outside = new ATM();
-        System.out.println(outside.withdraw());
+    void receive(){
+        System.out.print("Enter sender's account number: ");
+        this.sender = TextIO.getlnInt();
+        System.out.print("Enter amount you want to request: ");
+        this.amount = TextIO.getlnInt();
+        System.out.println("Request for $" + this.amount + " sent");
     }
 }
