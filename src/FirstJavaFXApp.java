@@ -12,13 +12,13 @@ import javafx.stage.Stage;
 
 public class FirstJavaFXApp extends Application {
 
-    public static void main(String[] args){
+    public static void main(String[] args) {
         launch(args);
     }
 
-    public void start(Stage stage){
-        Label message = new Label("You have been hacked!");
-        message.setFont(new Font( 20));
+    public void start(Stage stage) {
+        Label message = new Label("My first JavaFX application.");
+        message.setFont(new Font(20));
 
         Button helloButton = new Button("Say hello");
         helloButton.setOnAction(e -> message.setText("Hello, World!"));
@@ -27,7 +27,7 @@ public class FirstJavaFXApp extends Application {
         Button quitButton = new Button("Quit");
         quitButton.setOnAction(e -> Platform.exit());
 
-        HBox buttonBar = new HBox(20, helloButton, goodbyeButton, quitButton);
+        HBox buttonBar = new HBox(10, helloButton, goodbyeButton, quitButton);
         buttonBar.setAlignment(Pos.CENTER);
         BorderPane root = new BorderPane();
         root.setCenter(message);
@@ -35,8 +35,7 @@ public class FirstJavaFXApp extends Application {
 
         Scene scene = new Scene(root, 450, 200);
         stage.setScene(scene);
-        stage.setTitle("JavaFX Test");
+        stage.setTitle("CyberBruh");
         stage.show();
     }
-
 }
