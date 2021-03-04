@@ -11,11 +11,9 @@ public class Quiz {
         "D. CS2203",
         "E: CS1104",
         "b");
+        question.check();
 
 
-
-        Question question1 = new TrueFalseQuestion("We have a quiz next week", "FALSE");
-        question1.check();
 
 
         question = new MultipleChoiceQuestion(
@@ -27,7 +25,7 @@ public class Quiz {
                 "E. Fayetteville, North Carolina",
                 "a"
         );
-
+        question.check();
 
 
         question = new MultipleChoiceQuestion(
@@ -37,9 +35,9 @@ public class Quiz {
                 "C. 4 weeks",
                 "D. 5 weeks",
                 "E. 3 weeks",
-                "c"
+                "d"
         );
-
+        question.check();
 
 
         question = new MultipleChoiceQuestion(
@@ -51,7 +49,7 @@ public class Quiz {
                 "E. Barry Allen",
                 "d"
         );
-
+        question.check();
 
 
         question = new MultipleChoiceQuestion(
@@ -63,9 +61,24 @@ public class Quiz {
                 "E. Elyes Gabel",
                 "e"
         );
+        question.check();
 
+        question = new TrueFalseQuestion("We have a graded quiz on week 6", "TRUE");
+        question.check();
 
+        question = new TrueFalseQuestion("C supports Object Oriented Programming", "FALSE");
+        question.check();
 
+        question = new TrueFalseQuestion("A Bachelors' degree at UoPeople normally takes four years", "TRUE");
+        question.check();
+
+        question = new TrueFalseQuestion("An elephant is the king of the jungle.", "FALSE");
+        question.check();
+
+        question = new TrueFalseQuestion("A normal person has five fingers", "TRUE");
+        question.check();
+
+        question.showResults();
 
     }
 }

@@ -34,6 +34,8 @@ public class SecondJavaFXApp extends Application {
 
         Button redraw = new Button("Redraw"); // We create a button to redraw our picture
         redraw.setOnAction(e-> draw()); // Everytime the button is touched, draw() is called again.
+        canvas.setOnMouseMoved(e->draw());
+
         Button quit = new Button("Exit!");
         quit.setOnAction(e-> Platform.exit());
 
@@ -50,6 +52,7 @@ public class SecondJavaFXApp extends Application {
         stage.setTitle("Random Strings");       // Title of our application
         stage.setResizable(false);              // We instruct the stage to always have the same size
         stage.show();
+
     }
 
     private void draw(){
